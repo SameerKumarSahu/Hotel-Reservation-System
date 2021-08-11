@@ -5,18 +5,18 @@ public class Hotel {
 	public int rateForRegularCustomer;
 	public int weekDayRate;
 	public int weekEndRate;
+	public int rating;
+	//Default Constructor
+	public Hotel() {
 
-	public Hotel(String hotelName, int rateForRegularCustomer) {
-
-		this.hotelName = hotelName;
-		this.rateForRegularCustomer = rateForRegularCustomer;
-		
 	}
-	public Hotel(String name,int weekDayRate, int weekEndRate) {
+	//Parameterized Constructor
+	public Hotel(String name,int weekDayRate, int weekEndRate,int rating) {
 
 		this.hotelName = name;
 		this.weekDayRate = weekDayRate;
 		this.weekEndRate = weekEndRate;
+		this.rating=rating;
 	}
 
 	public String getName() {
@@ -46,14 +46,21 @@ public class Hotel {
 	public void setWeekEndRate(int weekEndRate) {
 		this.weekEndRate = weekEndRate;
 	}
-
-	public Hotel() {
-
+	public int getRating() {
+		return rating;
 	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	
 
 	@Override
 	public String toString() {
 		return " HotelName = " + hotelName +  ", WeekDayRate = "
-				+ weekDayRate + ", WeekEndRate = " + weekEndRate ;
+				+ weekDayRate + ", WeekEndRate = " + weekEndRate+",Rating ="+rating ;
 	}
+
+	
 }
