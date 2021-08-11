@@ -15,7 +15,6 @@ public class Hotel {
 	public Hotel(String name,int weekDayRate, int weekEndRate) {
 
 		this.hotelName = name;
-	
 		this.weekDayRate = weekDayRate;
 		this.weekEndRate = weekEndRate;
 	}
@@ -54,7 +53,7 @@ public class Hotel {
 
 	@Override
 	public String toString() {
-		
-		return " HotelName is " + hotelName + " & RateForRegularCustomer is " + rateForRegularCustomer ;
+		return " HotelName = " + hotelName +  ", WeekDayRate = "
+				+ weekDayRate + ", WeekEndRate = " + weekEndRate ;
 	}
 }
