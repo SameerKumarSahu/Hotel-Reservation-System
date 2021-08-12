@@ -48,7 +48,6 @@ public class HotelReservation {
 			System.out.println("Total Rate for " + noOfDays + " days is = " + TotalRates);
 			break;
 		}
-
 	}
 
 	public static void main(String[] args) {
