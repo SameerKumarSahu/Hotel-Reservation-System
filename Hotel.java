@@ -12,11 +12,12 @@ public class Hotel {
 
 	}
 	//Parameterized Constructor
-	public Hotel(String name,int weekDayRate, int weekEndRate) {
+	public Hotel(String name,int weekDayRate, int weekEndRate,int rating) {
 
 		this.hotelName = name;
 		this.weekDayRate = weekDayRate;
 		this.weekEndRate = weekEndRate;
+		this.rating=rating;
 	}
 
 	public String getName() {
