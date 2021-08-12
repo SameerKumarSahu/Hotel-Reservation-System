@@ -7,56 +7,48 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class HotelReservation {
-	
 
 	public static void findChepestBestRatedHotel(ArrayList<Hotel> hotelList) {
 		System.out.println("Enter the CustomerType");
 		System.out.println("Press 1 - Reward Customer");
 		System.out.println("Press 2 - Regular Customer");
-		 Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		int option = sc.nextInt();
 		switch (option) {
 		case 1:
-			try {
-				 Scanner scan = new Scanner(System.in);
-				System.out.println("Enter the starting date in this format 'YYYY-MM-DD'");
-				String localDate1 = scan.nextLine();
-				System.out.println("Enter the ending date in this format 'YYYY-MM-DD'");
-				String localDate2 = scan.nextLine();
-				LocalDate startingDate = LocalDate.parse(localDate1);
-				LocalDate endingDates = LocalDate.parse(localDate2);
-				long noOfDaysBetween = ChronoUnit.DAYS.between(startingDate, endingDates);
+			Scanner scan = new Scanner(System.in);
+			System.out.println("Enter the starting date in this format 'YYYY-MM-DD'");
+			String localDate1 = scan.nextLine();
+			System.out.println("Enter the ending date in this format 'YYYY-MM-DD'");
+			String localDate2 = scan.nextLine();
+			LocalDate startingDate = LocalDate.parse(localDate1);
+			LocalDate endingDate = LocalDate.parse(localDate2);
+			long noOfDaysBetween = ChronoUnit.DAYS.between(startingDate, endingDate);
 
-				Hotel hotel = hotelList.stream().min(Comparator.comparing(Hotel::getRateForRewardCustomer)).get();
-				int TotalRate = (int) (hotel.getRateForRewardCustomer() * noOfDaysBetween);
-				System.out.println("The cheapest best rated Hotel name is " + hotel.getName() + " And it's rating is "
-						+ hotel.getRating());
-				System.out.println("Total Rate for " + noOfDaysBetween + " days is = " + TotalRate);
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+			Hotel hotel = hotelList.stream().min(Comparator.comparing(Hotel::getRateForRewardCustomer)).get();
+			int TotalRate = (int) (hotel.getRateForRewardCustomer() * noOfDaysBetween);
+			System.out.println("The cheapest best rated Hotel name is " + hotel.getName() + " And it's rating is "
+					+ hotel.getRating());
+			System.out.println("Total Rate for " + noOfDaysBetween + " days is = " + TotalRate);
 			break;
 		case 2:
-			try {
-				Scanner sca = new Scanner(System.in);
-				System.out.println("Enter the starting date in this format 'YYYY-MM-DD'");
-				String localDate1 = sca.nextLine();
-				System.out.println("Enter the ending date in this format 'YYYY-MM-DD'");
-				String localDate2 = sca.nextLine();
-				LocalDate startingDate = LocalDate.parse(localDate1);
-				LocalDate endingDates = LocalDate.parse(localDate2);
-				long noOfDaysBetween = ChronoUnit.DAYS.between(startingDate, endingDates);
+			Scanner sca = new Scanner(System.in);
+			System.out.println("Enter the starting date in this format 'YYYY-MM-DD'");
+			String localDate3 = sca.nextLine();
+			System.out.println("Enter the ending date in this format 'YYYY-MM-DD'");
+			String localDate4 = sca.nextLine();
+			LocalDate startingDates = LocalDate.parse(localDate3);
+			LocalDate endingDates = LocalDate.parse(localDate4);
+			long noOfDays = ChronoUnit.DAYS.between(startingDates, endingDates);
 
-				Hotel hotel = hotelList.stream().min(Comparator.comparing(Hotel::getRateForRegularCustomer)).get();
-				int TotalRate = (int) (hotel.getRateForRegularCustomer() * noOfDaysBetween);
-				System.out.println("The cheapest best rated Hotel name is " + hotel.getName() + " And it's rating is "
-						+ hotel.getRating());
-				System.out.println("Total Rate for " + noOfDaysBetween + " days is = " + TotalRate);
-			} catch (Exception e) {
-				System.out.println(e);
-			}
+			Hotel hotel1 = hotelList.stream().min(Comparator.comparing(Hotel::getRateForRegularCustomer)).get();
+			int TotalRates = (int) (hotel1.getRateForRegularCustomer() * noOfDays);
+			System.out.println("The cheapest best rated Hotel name is " + hotel1.getName() + " And it's rating is "
+					+ hotel1.getRating());
+			System.out.println("Total Rate for " + noOfDays + " days is = " + TotalRates);
 			break;
 		}
+
 	}
 
 	public static void main(String[] args) {
